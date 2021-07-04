@@ -6,13 +6,32 @@ h1 {
     font-family: fantasy;
     color:lawngreen;
 }
-#app {
-    display: grid;
-    grid-template-columns: repeat( auto-fit, 100px );
-    grid-auto-rows: 100px;
-    grid-gap: 15px;
-    justify-content: center;
-    perspective: 800px;
-    max-width: 720px;
-    margin: 0 auto;
-} 
+.h2 {
+    text-align: center;
+    font-family: cursive;
+}
+.bold_text {
+    font-weight: 900;
+}
+.row {
+    text-align: center;
+}
+
+.card {
+    display: inline-flex;
+    width: 100px;
+    height: 100px;
+    background: coral;
+    cursor: pointer;
+    border-radius: 20%;
+    margin: 3px;
+}
+.card:hover {
+    background: blueviolet;
+}
+.card.dA {
+    background-image: url("/images/diamonds/diamonds-A.svg"); 
+}
+.card.flip {
+    transform: rotateY(180deg);
+}
