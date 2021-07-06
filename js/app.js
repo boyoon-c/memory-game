@@ -1,13 +1,25 @@
 // Three modes for the level of difficulty: easy game, medium, difficult
-
+init()
+function init(){
+    colors = ["red", "blue", "pink", "purple", "black", "white", "green", "brown",
+    "red", "blue", "pink", "purple", "black", "white", "green", "brown",
+    "red", "blue", "pink", "purple", "black", "white", "green", "brown",]
+}
 // Attach event listener for each card on a board that invokes a function of displaying card
 // Shuffle the order of the cards on the board
 cards = document.querySelectorAll('.card')
 //cards.forEach(card => card.addEventListener('click', handleClick))
-function handleClick(){
-     console.log("clicked")
+//const colors=[]
+function handleClick(e){
+     targetId=e.target.id
+     console.log(targetId)
+     let randIdx = Math.floor(Math.random() * colors.length)
+     // Assign card with the random index to a variable
+     assignedColor = colors.splice(randIdx, 1)
+     this.classList.add(assignedColor)
  }
-cards.forEach(card => card.addEventListener('click', flipCard))
+
+cards.forEach(card => card.addEventListener('click', handleClick))
 function flipCard(){
     this.classList.toggle('hidden');
 }
@@ -15,24 +27,10 @@ function flipCard(){
 // Functions
 // init()
 // Initialize deck 1 with array of 52 cards 
-// function init() {
-//   deck1 = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
-// }
 // Function to handle a button click:
-// function handleClick(){
-//   // Error handling
-//   if (deck1.length > 0){
-//     // Randomly select number from total cards remaining
-//     let randIdx = Math.floor(Math.random() * deck1.length)
-//     // Assign card with the random index to a variable
-//     cardPicked = deck1.splice(randIdx, 1)
-//     // Add card picked to deck 2
-//     deck2.push(cardPicked[0])
-//     // Pass card picked to render function to display
-//     render(cardPicked)
-//   }
-// }
 // Create shuffle button
+
+
 // Attach event listener to the button that invokes a function that uses randomized number to create different combination of a card array
 // Each player flips three cards at a time
 // Create player turn that alternates turns when multiples-of-three clicks are made

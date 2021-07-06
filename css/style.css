@@ -8,7 +8,7 @@ h1 {
 }
 .h2 {
     text-align: center;
-    font-family: cursive;
+    font-family:monospace;
 }
 .bold_text {
     font-weight: 900;
@@ -16,7 +16,9 @@ h1 {
 .row {
     text-align: center;
 }
-
+.card-hidden{
+    background-image: default;
+}
 .card {
     display: inline-flex;
     width: 100px;
@@ -25,13 +27,40 @@ h1 {
     cursor: pointer;
     border-radius: 20%;
     margin: 3px;
+    background-position: center center;
+    background-size: contain;
+    font-size: inherit;
+    object-fit: scale-down;
+    background-repeat: no-repeat;
 }
 .card:hover {
     background: blueviolet;
 }
 .card.dA {
     background-image: url("/images/diamonds/diamonds-A.svg"); 
+    font-size: 6px;
 }
 .card.flip {
     transform: rotateY(180deg);
+}
+.red {
+    background-color: red
+}
+.blue {
+    background-color: blue
+}
+.pink{
+    background-color: pink
+}
+.black{
+    background-color: black
+}
+.white{
+    background-color: white
+}
+.green{
+    background-color: greenyellow
+}
+.brown{
+    background-color: brown
 }
