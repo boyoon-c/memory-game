@@ -65,37 +65,37 @@ h1 {
     background-color: brown
 }
 .emoji1 {
-    background-image: url("/images/hugLoveEmoji.png");
+    background-image: url("./images/hugLoveEmoji.png");
     background-color: violet;
     background-size: 60px;
 }
 .emoji2 {
-    background-image: url("/images/Surprised_Emoji.png");
+    background-image: url("./images/Surprised_Emoji.png");
     background-color: greenyellow;
     background-size: 46px;
 }
 .emoji3 {
-    background-image: url("/images/Unamused-Face-Emoji-PNG.png");
+    background-image: url("./images/Unamused-Face-Emoji-PNG.png");
     background-color: cornflowerblue
 }
 .emoji4{
-    background-image: url("/images/virus.png");
+    background-image: url("./images/virus.png");
     background-color: crimson;
 }
 .emoji5{
-    background-image: url("/images/robot.png");
+    background-image: url("./images/robot.png");
     background-color: pink
 }
 .emoji6{
-    background-image: url("/images/scared.png");
+    background-image: url("./images/scared.png");
     background-color:blue
 }
 .emoji7{
-    background-image: url("/images/smile.jpeg");
+    background-image: url("./images/smile.jpeg");
     background-color: white
 }
 .emoji8{
-    background-image: url("/images/alien.png");
+    background-image: url("./images/alien.png");
     background-color: black;
 }
 .buttons{
