@@ -6,18 +6,33 @@ function init(){
 // Attach event listener for each card on a board that invokes a function of displaying card
 // Shuffle the order of the cards on the board
 cards = document.querySelectorAll('.card')
-shuffleButton = document.querySelector()
+shuffleButton = document.querySelector('#reshuffleButton')
+restartButton = document.querySelector('#restartButton')
 let firstCard = null
 let secondCard = null
 let thirdCard = null
 //cards.forEach(card => card.addEventListener('click', handleClick))
 //const colors=[]
-
+let assignedEmoji = []
+let clicked = false
+reshuffleButton.addEventListener('click', shuffleArray)
+restartButton.addEventListener('click', restart)
 assignedEmoji = shuffleArray(emojis)
+function restart(){
+    window.location.reload()
+}
 function handleClick(e){
      target=e.target
      targetIdx=(parseInt(target.id.replace("sq","").trim())-1)
-     this.classList.add(assignedEmoji[targetIdx])     
+     this.classList.add(assignedEmoji[targetIdx])
+     setTimeout(()=>{
+         this.classList.remove(assignedEmoji[targetIdx])
+        }, 1000)
+    clicked = true;
+    console.log('clicked', clicked)
+    if (clicked){
+
+    }
  }
  function shuffleArray(array){
      for (let i=emojis.length-1; i>0; i--){
@@ -29,7 +44,7 @@ function handleClick(e){
      return array
  }
 
-cards.forEach(emoji => emoji.addEventListener('click', handleClick,  {once: true}))
+cards.forEach(emoji => emoji.addEventListener('click', handleClick))
 
 function flipCard(){
     this.classList.toggle('hidden');
