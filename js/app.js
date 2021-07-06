@@ -1,38 +1,86 @@
-// Three modes for the level of difficulty: easy game, medium, difficult
-init()
-function init(){
-    emojis = ["emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8"]
-}
-// Attach event listener for each card on a board that invokes a function of displaying card
-// Shuffle the order of the cards on the board
+
+
 cards = document.querySelectorAll('.card')
 shuffleButton = document.querySelector('#reshuffleButton')
 restartButton = document.querySelector('#restartButton')
 let firstCard = null
 let secondCard = null
 let thirdCard = null
+let assignedEmoji = []
+let clickedCard = false
+
+
+
+// Three modes for the level of difficulty: easy game, normal, hard
+// Alter the number of grids to adjust the level of difficulty
+// initiation function
+init()
+function init(){
+    emojis = ["emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8"]
+}
+// Attach event listener for each card on a board that invokes a function of displaying card
+// Shuffle the order of the cards on the board
 //cards.forEach(card => card.addEventListener('click', handleClick))
 //const colors=[]
-let assignedEmoji = []
-let clicked = false
 reshuffleButton.addEventListener('click', shuffleArray)
 restartButton.addEventListener('click', restart)
 assignedEmoji = shuffleArray(emojis)
 function restart(){
     window.location.reload()
 }
+let flipped=0
+
 function handleClick(e){
+    //clickedCard = true
+    //this.classList.add('flip')
+    //console.log("This", this)
      target=e.target
+     //console.log(target)
      targetIdx=(parseInt(target.id.replace("sq","").trim())-1)
      this.classList.add(assignedEmoji[targetIdx])
-     setTimeout(()=>{
-         this.classList.remove(assignedEmoji[targetIdx])
-        }, 1000)
-    clicked = true;
-    console.log('clicked', clicked)
-    if (clicked){
-
+     
+     this.classList.add("flipped")
+     if (flipped==0){
+        firstCard = this
+        flipped +=1
+        return
+    } else if (flipped==1){
+        secondCard=this
+        flipped +=1
+    } else if (flipped==2){
+        flipped=0
     }
+    thirdCard=this
+    console.log("firstcard", firstCard)
+    console.log("secondcard", secondCard)
+    console.log("thirdCard", thirdCard)
+
+    isMatch()
+    //alternating turns
+    //when three cards that are flipped are not identical, flip them down
+    
+    //if three cards that are flipped are identical, switch their color from the original background to pink and make them disappear
+    if (flipped%3!=0){
+        setTimeout(()=>{
+            this.classList.remove(assignedEmoji[targetIdx])
+           }, 1000)
+           //clicked+=1
+
+        
+    } else{
+        return
+    }
+ }
+
+ // function to track a player's performance
+ function isMatch(firstcard, secondcard, thirdcard){
+     if (firstcard===secondCard && secondCard==thirdCard){
+         console.log("Cards do match")
+         return
+     } else{
+        console.log("Cards do not match")
+     }
+     console.log("isMatch function")
  }
  function shuffleArray(array){
      for (let i=emojis.length-1; i>0; i--){
