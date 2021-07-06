@@ -80,11 +80,11 @@ h1 {
 }
 .emoji4{
     background-image: url("/images/virus.png");
-    background-color: darkturquoise;
+    background-color: crimson;
 }
 .emoji5{
     background-image: url("/images/robot.png");
-    background-color: red
+    background-color: pink
 }
 .emoji6{
     background-image: url("/images/scared.png");
@@ -97,4 +97,7 @@ h1 {
 .emoji8{
     background-image: url("/images/alien.png");
     background-color: black;
+}
+.buttons{
+    text-align: center;
 }
