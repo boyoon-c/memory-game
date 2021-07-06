@@ -1,25 +1,31 @@
 // Three modes for the level of difficulty: easy game, medium, difficult
 init()
 function init(){
-    colors = ["red", "blue", "pink", "purple", "black", "white", "green", "brown",
-    "red", "blue", "pink", "purple", "black", "white", "green", "brown",
-    "red", "blue", "pink", "purple", "black", "white", "green", "brown",]
+    emojis = ["emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8"]
 }
 // Attach event listener for each card on a board that invokes a function of displaying card
 // Shuffle the order of the cards on the board
 cards = document.querySelectorAll('.card')
+let firstCard = null
+let secondCard = null
+let thirdCard = null
 //cards.forEach(card => card.addEventListener('click', handleClick))
 //const colors=[]
 function handleClick(e){
      targetId=e.target.id
-     console.log(targetId)
-     let randIdx = Math.floor(Math.random() * colors.length)
+     
+     let randIdx = Math.floor(Math.random() * cards.length)
      // Assign card with the random index to a variable
-     assignedColor = colors.splice(randIdx, 1)
-     this.classList.add(assignedColor)
+     //assignedEmoji = emojis.splice(randIdx, 1)
+     assignedEmoji = emojis[randIdx]
+     console.log(randIdx)
+     console.log(assignedEmoji)
+     this.classList.add(assignedEmoji)
+
+     
  }
 
-cards.forEach(card => card.addEventListener('click', handleClick))
+cards.forEach(emoji => emoji.addEventListener('click', handleClick,  {once: true}))
 function flipCard(){
     this.classList.toggle('hidden');
 }
