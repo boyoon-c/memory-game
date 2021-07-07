@@ -1,14 +1,44 @@
 body {
-    background-color: lightsteelblue;
+    background-color: bisque;
 }
 h1 {
+    display: flex;
     text-align: center;
-    font-family: fantasy;
-    color:lawngreen;
+    font-family: 'Bungee Shade', cursive;    
+    color: black;
+    background-color: crimson;
+    font-size: 70px;
+    margin: 5px 5px 10px 0px;
+    background-position: center center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
 }
 .h2 {
     text-align: center;
-    font-family:monospace;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 30px;
+    margin: 0px;
+}
+.scores{
+    text-align: center;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 30px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#p1Score{
+    margin: 0 100px;
+}
+#p2Score{
+    margin: 0 100px;
+}
+#instruction{
+    background-color: burlywood;
+    color: black
 }
 .bold_text {
     font-weight: 900;
@@ -23,12 +53,13 @@ h1 {
     display: inline-flex;
     width: 100px;
     height: 100px;
-    background: coral;
+    background: white;
+    background-image: url("/images/bottleCap.jpg");
     cursor: pointer;
-    border-radius: 20%;
+    border-radius: 70%;
     margin: 3px;
     background-position: center center;
-    background-size: 50px;
+    background-size: 110px;
     font-size: inherit;
     object-fit: scale-down;
     background-repeat: no-repeat;
@@ -36,10 +67,7 @@ h1 {
 .card:hover {
     background: blueviolet;
 }
-.card.dA {
-    background-image: url("/images/diamonds/diamonds-A.svg"); 
-    font-size: 6px;
-}
+
 .card.flip {
     transform: rotateY(180deg);
 }
@@ -64,40 +92,68 @@ h1 {
 .brown{
     background-color: brown
 }
-.emoji1 {
-    background-image: url("./images/hugLoveEmoji.png");
+[data-emoji=emoji1] {
+    background-image: url("/images/hugLoveEmoji.png");
     background-color: violet;
-    background-size: 60px;
+    background-size: 110px;
 }
-.emoji2 {
-    background-image: url("./images/Surprised_Emoji.png");
+[data-emoji=emoji2] {
+    background-image: url("/images/Surprised_Emoji.png");
     background-color: greenyellow;
-    background-size: 46px;
+    background-size: 100px;
 }
-.emoji3 {
-    background-image: url("./images/Unamused-Face-Emoji-PNG.png");
+[data-emoji=emoji3] {
+    background-image: url("/images/Unamused-Face-Emoji-PNG.png");
     background-color: cornflowerblue
 }
-.emoji4{
-    background-image: url("./images/virus.png");
+[data-emoji=emoji4]{
+    background-image: url("/images/virus.png");
     background-color: crimson;
 }
-.emoji5{
-    background-image: url("./images/robot.png");
+[data-emoji=emoji5]{
+    background-image: url("/images/robot.png");
     background-color: pink
 }
-.emoji6{
-    background-image: url("./images/scared.png");
+[data-emoji=emoji6]{
+    background-image: url("/images/scared.png");
     background-color:blue
 }
-.emoji7{
-    background-image: url("./images/smile.jpeg");
+[data-emoji=emoji7]{
+    background-image: url("/images/smile.jpeg");
     background-color: white
 }
-.emoji8{
-    background-image: url("./images/alien.png");
+[data-emoji=emoji8]{
+    background-image: url("/images/alien.png");
     background-color: black;
 }
 .buttons{
     text-align: center;
+    font-family: 'Odibee Sans', cursive;
+
+}
+.card-done{
+    display: inline-flex;
+    width: 100px;
+    height: 100px;
+    background: bisque;
+    cursor: pointer;
+    border-radius: 20%;
+    margin: 3px;
+    background-position: center center;
+    background-size: 50px;
+    font-size: inherit;
+    object-fit: scale-down;
+    background-repeat: no-repeat;
+}
+.scores{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.buttons{
+    font-family: 'Odibee Sans', cursive;
+    background-color: burlywood;
+    font-size: 30px;
+    align-content: center;
+    margin: 30px 0px;
 }
