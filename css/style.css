@@ -3,12 +3,13 @@ body {
 }
 h1 {
     text-align: center;
-    font-family: fantasy;
+    font-family: 'Odibee Sans', cursive;
     color:lawngreen;
+    background-color: salmon
 }
 .h2 {
     text-align: center;
-    font-family:monospace;
+    font-family: 'Odibee Sans', cursive;
 }
 .bold_text {
     font-weight: 900;
@@ -65,39 +66,64 @@ h1 {
     background-color: brown
 }
 [data-emoji=emoji1] {
-    background-image: url("images/hugLoveEmoji.png");
+    background-image: url("/images/hugLoveEmoji.png");
     background-color: violet;
     background-size: 60px;
 }
 [data-emoji=emoji2] {
-    background-image: url("images/Surprised_Emoji.png");
+    background-image: url("/images/Surprised_Emoji.png");
     background-color: greenyellow;
     background-size: 46px;
 }
 [data-emoji=emoji3] {
-    background-image: url("images/Unamused-Face-Emoji-PNG.png");
+    background-image: url("/images/Unamused-Face-Emoji-PNG.png");
     background-color: cornflowerblue
 }
 [data-emoji=emoji4]{
-    background-image: url("images/virus.png");
+    background-image: url("/images/virus.png");
     background-color: crimson;
 }
 [data-emoji=emoji5]{
-    background-image: url("images/robot.png");
+    background-image: url("/images/robot.png");
     background-color: pink
 }
 [data-emoji=emoji6]{
-    background-image: url("images/scared.png");
+    background-image: url("/images/scared.png");
     background-color:blue
 }
 [data-emoji=emoji7]{
-    background-image: url("images/smile.jpeg");
+    background-image: url("/images/smile.jpeg");
     background-color: white
 }
 [data-emoji=emoji8]{
-    background-image: url("images/alien.png");
+    background-image: url("/images/alien.png");
     background-color: black;
 }
 .buttons{
     text-align: center;
+}
+.card-done{
+    display: inline-flex;
+    width: 100px;
+    height: 100px;
+    background: lightsteelblue;
+    cursor: pointer;
+    border-radius: 20%;
+    margin: 3px;
+    background-position: center center;
+    background-size: 50px;
+    font-size: inherit;
+    object-fit: scale-down;
+    background-repeat: no-repeat;
+}
+.scores{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.buttons{
+    font-family: 'Odibee Sans', cursive;
+    background-color: salmon;
+    font-size: 30px;
+    align-content: center;
 }

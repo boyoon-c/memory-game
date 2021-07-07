@@ -3,12 +3,18 @@
 cards = document.querySelectorAll('.card')
 shuffleButton = document.querySelector('#reshuffleButton')
 restartButton = document.querySelector('#restartButton')
+p1Stat = document.getElementById("p1Score")
+p2Stat = document.getElementById("p2Score")
+//console.log(p1Stat)
 let firstCard = null
 let secondCard = null
 let thirdCard = null
 let assignedEmoji = []
 let clickedCard = false
-
+let playerTurn 
+let p1Turn=true
+p1Score=0
+p2Score=0
 
 
 // Three modes for the level of difficulty: easy game, normal, hard
@@ -26,7 +32,7 @@ reshuffleButton.addEventListener('click', shuffleArray)
 restartButton.addEventListener('click', restart)
 //assignedEmoji = shuffleArray(emojis)
 assignedEmoji = emojis
-console.log(assignedEmoji)
+//console.log(assignedEmoji)
 function restart(){
     window.location.reload()
 }
@@ -44,23 +50,64 @@ function handleClick(e){
      this.classList.add("flipped")
      this.setAttribute("data-emoji", assignedEmoji[targetIdx])
     //console.log(this.removeAttribute)
-     if (flipped==0){
-        firstCard = this
-        flipped +=1
-        return
-    } else if (flipped==1){
-        secondCard=this
-
-        flipped +=1
-    } else if (flipped==2){
+     if (flipped===0){
+         firstCard = this
+         flipped +=1
+         playerTurn = 1
+         return
+        } else if (flipped===1){
+            secondCard=this
+            
+            flipped +=1
+        } else if (flipped===2){
+            thirdCard=this
+            //p1Turn = (!p1Turn) ? true : false
+            let matchStatus=isMatch(firstCard, secondCard, thirdCard)
+            //console.log(matchStatus)
+            if (!matchStatus){
+                setTimeout(()=>{
+                    //firstCard.classList.remove("emoji*");
+                    firstCard.removeAttribute("data-emoji")
+                    firstCard.classList.remove("flipped")
+                    //secondCard.classList.remove(assignedEmoji[targetIdx]);
+                    secondCard.removeAttribute("data-emoji")
+                    secondCard.classList.remove("flipped")
+                    //thirdCard.classList.remove(assignedEmoji[targetIdx]);
+                    thirdCard.removeAttribute("data-emoji")
+                    thirdCard.classList.remove("flipped")
+                   }, 2000)
+         
+            } else if (matchStatus==true){
+                setTimeout(() =>{
+                firstCard.removeAttribute("data-emoji")
+                firstCard.classList.replace("card","card-done")
+                
+                secondCard.removeAttribute("data-emoji")
+                secondCard.classList.replace("card","card-done")
+                
+                thirdCard.removeAttribute("data-emoji")
+                thirdCard.classList.replace("card","card-done")
+                }, 5000)
+            }
+            if (p1Turn){
+                if (matchStatus==true){
+                    p1Score+=1
+                }
+                p1Turn = false
+            } else {
+                if (matchStatus==true){
+                    p2Score+=1
+                }
+                p1Turn = true
+            }
         flipped=0
-
+        
     }
-    thirdCard=this
     
-    console.log("firstcard", firstCard)
-    console.log("secondcard", secondCard)
-    console.log("thirdCard", thirdCard)
+    //console.log("firstcard", firstCard)
+    //console.log("secondcard", secondCard)
+    //console.log("thirdCard", thirdCard)
+    //console.log("p1Turn", p1Turn)
 
     //alternating turns
     //when three cards that are flipped are not identical, flip them down
@@ -73,37 +120,41 @@ function handleClick(e){
     //     return
     // }
 
-    matchStatus=isMatch(firstCard, secondCard, thirdCard)
-    if (!matchStatus){
-        setTimeout(()=>{
-            //firstCard.classList.remove("emoji*");
-            firstCard.removeAttribute("data-emoji")
-            firstCard.classList.remove("flipped")
-            //secondCard.classList.remove(assignedEmoji[targetIdx]);
-            secondCard.removeAttribute("data-emoji")
-            secondCard.classList.remove("flipped")
-            //thirdCard.classList.remove(assignedEmoji[targetIdx]);
-            thirdCard.removeAttribute("data-emoji")
-            thirdCard.classList.remove("flipped")
-           }, 2000)
- 
-    } else{
+        //keepScore(matchStatus, p1Turn)
+        render(p1Score, p2Score)
 
-    }
+    
+    
 }
  // function to track a player's performance
- function isMatch(firstcard, secondcard, thirdcard){
+ function isMatch(first, second, third){
     let matched = false;
+    console.log('first attribute is', first)
+    console.log('second attribute is', second)
+    console.log('third attribute is', third)
 
-     if (firstcard.getAttribute("data-emoji")===secondcard.getAttribute("data-emoji") && secondcard.getAttribute("data-emoji")==thirdcard.getAttribute("data-emoji")){
+     if (first.getAttribute("data-emoji")===second.getAttribute("data-emoji") && second.getAttribute("data-emoji")===third.getAttribute("data-emoji")){
          console.log("Cards do match")
          matched = true
          
      } else{
         console.log("Cards do not match")
+        //make the matched cards disappear
         
      }
      return matched
+ }
+ function keepScore(winStatus, p1Turn){
+     if (winStatus==true && p1Turn ==true){
+         p1Score+=1
+         
+     } else if (winStatus ==true && p1Turn ==false){
+         p2Score+=1
+     }
+ }
+ function render(p1Score, p2Score){
+    p1Stat.innerText=p1Score
+    p2Stat.innerText=p2Score
  }
  function shuffleArray(array){
      for (let i=emojis.length-1; i>0; i--){
