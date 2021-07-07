@@ -2,14 +2,42 @@ body {
     background-color: lightsteelblue;
 }
 h1 {
+    display: flex;
     text-align: center;
     font-family: 'Odibee Sans', cursive;
     color:lawngreen;
-    background-color: salmon
+    background-color: salmon;
+    font-size: 70px;
+    margin: 5px 5px 10px 0px;
+    background-position: center center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .h2 {
     text-align: center;
     font-family: 'Odibee Sans', cursive;
+    font-size: 30px;
+    margin: 0px;
+}
+.scores{
+    text-align: center;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 30px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#p1Score{
+    margin: 0 100px;
+}
+#p2Score{
+    margin: 0 100px;
+}
+#instruction{
+    background-color: salmon;
+    color: lawngreen
 }
 .bold_text {
     font-weight: 900;
@@ -101,6 +129,8 @@ h1 {
 }
 .buttons{
     text-align: center;
+    font-family: 'Odibee Sans', cursive;
+
 }
 .card-done{
     display: inline-flex;

@@ -5,6 +5,7 @@ shuffleButton = document.querySelector('#reshuffleButton')
 restartButton = document.querySelector('#restartButton')
 p1Stat = document.getElementById("p1Score")
 p2Stat = document.getElementById("p2Score")
+pTurn = document.getElementById("turn")
 //console.log(p1Stat)
 let firstCard = null
 let secondCard = null
@@ -122,7 +123,7 @@ function handleClick(e){
 
         //keepScore(matchStatus, p1Turn)
         render(p1Score, p2Score)
-
+    pTurn.innerText = p1Turn ? `Player 1's Turn` : `Player 2's Turn`
     
     
 }
@@ -153,8 +154,8 @@ function handleClick(e){
      }
  }
  function render(p1Score, p2Score){
-    p1Stat.innerText=p1Score
-    p2Stat.innerText=p2Score
+    p1Stat.innerText=`Player 1 Score: ${p1Score}`
+    p2Stat.innerText=`Player 2 Score: ${p2Score}`
  }
  function shuffleArray(array){
      for (let i=emojis.length-1; i>0; i--){
