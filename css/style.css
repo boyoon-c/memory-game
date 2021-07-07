@@ -1,5 +1,6 @@
 body {
     background-color: bisque;
+    font-family: 'Odibee Sans', cursive;
 }
 h1 {
     display: flex;
@@ -21,20 +22,38 @@ h1 {
     font-size: 30px;
     margin: 0px;
 }
+/*
 .scores{
-    text-align: center;
     font-family: 'Odibee Sans', cursive;
     font-size: 30px;
     margin: 0px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: left;
+    align-items: center;
 }
-#p1Score{
-    margin: 0 100px;
+
+#p1Score {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 25px;
 }
+
 #p2Score{
-    margin: 0 100px;
+    justify-content: right;
+    align-items: space-between;
+    display: flex;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 25px;
+    flex-direction: row-reverse
+}
+*/
+.h3 {
+    display: flex;
+    justify-content: space-around;
 }
 #instruction{
     background-color: burlywood;
@@ -43,23 +62,43 @@ h1 {
 .bold_text {
     font-weight: 900;
 }
+
 .row {
     text-align: center;
+    display: inline-grid;
+    grid-auto-flow: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
+/*
+.row3{
+    display:flex;
+    text-align:center;
+    justify-content: space-between;
+    font-size: 20px;
+}
+*/
 .card-hidden{
     background-image: default;
 }
+
+.container{
+    display: grid;
+    justify-content: space-around;
+}
+.column{
+    grid-row: 6/1;
+}
 .card {
-    display: inline-flex;
     width: 100px;
     height: 100px;
-    background: white;
+    justify-content: center;
+    background-color: bisque;
     background-image: url("../images/bottleCap.jpg");
     cursor: pointer;
-    border-radius: 70%;
-    margin: 3px;
+    border-radius: 60%;
     background-position: center center;
-    background-size: 110px;
+    background-size: 102px;
     font-size: inherit;
     object-fit: scale-down;
     background-repeat: no-repeat;
@@ -93,39 +132,42 @@ h1 {
 .brown{
     background-color: brown
 }
+.data-emoji{
+    background-color: bisque;
+    background-size: 80px;
+}
 [data-emoji=emoji1] {
     background-image: url("../images/hugLoveEmoji.png");
-    background-color: violet;
     background-size: 110px;
 }
 [data-emoji=emoji2] {
     background-image: url("../images/Surprised_Emoji.png");
-    background-color: greenyellow;
-    background-size: 100px;
+    background-size: 85px;
 }
 [data-emoji=emoji3] {
     background-image: url("../images/Unamused-Face-Emoji-PNG.png");
-    background-color: cornflowerblue
+    background-size: 90px;
 }
 [data-emoji=emoji4]{
     background-image: url("../images/virus.png");
-    background-color: crimson;
+    background-size: 80px;
 }
 [data-emoji=emoji5]{
     background-image: url("../images/robot.png");
-    background-color: pink
+    background-size: 80px;
 }
 [data-emoji=emoji6]{
     background-image: url("../images/scared.png");
-    background-color:blue
+    background-size: 85px;
 }
 [data-emoji=emoji7]{
-    background-image: url("../images/smile.jpeg");
-    background-color: white
+    background-image: url("../images/devil-smiling.png");
+    background-size: 75px;
+    border-radius: 60%;
 }
 [data-emoji=emoji8]{
     background-image: url("../images/alien.png");
-    background-color: black;
+    background-size: 80px;
 }
 .buttons{
     text-align: center;
@@ -157,4 +199,8 @@ h1 {
     font-size: 30px;
     align-content: center;
     margin: 30px 0px;
+}
+.scoreContainer{
+    display: flex;
+    justify-content: space-around;
 }
