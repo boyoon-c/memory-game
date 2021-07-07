@@ -40,7 +40,9 @@ function restart(){
 let flipped=0
 
 function handleClick(e){
-    
+    //firstCard=null
+    //secondCard=null
+    //thirdCard=null
     //clickedCard = true
     //this.classList.add('flip')
     //console.log("This", this)
@@ -91,6 +93,7 @@ function handleClick(e){
                 }, 5000)
             }
             if (p1Turn){
+                
                 if (matchStatus==true){
                     p1Score+=1
                 }
@@ -104,6 +107,7 @@ function handleClick(e){
         flipped=0
         
     }
+    p1Stat.style.colr= (p1Turn==true) ? "salmon": "black"
     
     //console.log("firstcard", firstCard)
     //console.log("secondcard", secondCard)

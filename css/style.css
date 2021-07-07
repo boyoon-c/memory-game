@@ -175,13 +175,11 @@ h1 {
 
 }
 .card-done{
-    display: inline-flex;
     width: 100px;
     height: 100px;
     background: bisque;
     cursor: pointer;
-    border-radius: 20%;
-    margin: 3px;
+    border-radius: 60%;
     background-position: center center;
     background-size: 50px;
     font-size: inherit;
