@@ -98,7 +98,7 @@ function handleClick(e){
                 
                 thirdCard.removeAttribute("data-emoji")
                 thirdCard.classList.replace("card","card-done")
-                }, 5000)
+                }, 2000)
             }
             if (p1Turn){
                 
