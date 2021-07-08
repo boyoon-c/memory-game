@@ -24,9 +24,24 @@ h1 {
 }
 .container{
     display: grid;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
-
+.mini-container1{
+    display: flex;
+    grid-row: 1 / 6;
+    grid-column: 1;
+    border: 3px dotted blue;   
+    align-items: center;
+    justify-content: center;
+}
+.mini-container2{
+    display: flex;
+    grid-row: 1 / 6;
+    grid-column: 3;
+    border: 3px dotted blue;   
+    align-items: center;
+    justify-content: center;
+}
 /*
 .scores{
     font-family: 'Odibee Sans', cursive;
@@ -69,6 +84,7 @@ h1 {
 }
 
 .row {
+    grid-column: 2;
     text-align: center;
     display: inline-grid;
     grid-auto-flow: column;
@@ -194,9 +210,10 @@ h1 {
     text-align: center;
 }
 button{
+    
     font-size: 30px;
     align-content: center;
-    margin: 0px 10px;
+    margin: 40px 10px;
     font-weight: bold;
     background-color: burlywood;
     font-family: 'Bungee Shade', cursive; 
