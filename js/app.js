@@ -28,12 +28,12 @@ function init(){
 }
 // Attach event listener for each card on a board that invokes a function of displaying card
 // Shuffle the order of the cards on the board
+assignedEmoji = emojis
 cards.forEach(card => card.addEventListener('click', handleClick))
 //const colors=[]
-reshuffleButton.addEventListener('click', shuffleArray(emojis))
+shuffleButton.addEventListener('click', shuffleArray)
 restartButton.addEventListener('click', restart)
 //assignedEmoji = shuffleArray(emojis)
-assignedEmoji = emojis
 //console.log(assignedEmoji)
 function restart(){
     window.location.reload()
@@ -169,7 +169,8 @@ function handleClick(e){
     p1Stat.innerText=`Player 1 Score \n ${p1Score}`
     p2Stat.innerText=`Player 2 Score \n ${p2Score}`
  }
- function shuffleArray(array){
+ function shuffleArray(){
+     array=emojis
      for (let i=emojis.length-1; i>0; i--){
          let j = Math.floor(Math.random()*(i+1))
          let temp = array[i]
