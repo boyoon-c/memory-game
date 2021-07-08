@@ -4,7 +4,7 @@
 The rule of the game is simple. Players should find a match from the cards. A player who finds the most matches wins.
 
 ## Motivation
-Memory game has always been my childhood game and I occassionally play it with my nephew even these days. This has made me to build the memory game of my own. However, I have added some tweaks to make it more interesting: player of the turn flips three cards instead of two to find a match. 
+Memory game has always been my childhood game and I occassionally play it with my nephew even nowadays. This has made me to build the memory game of my own. However, I have added some tweaks to make it more interesting: player of the turn flips three cards instead of two to find a match. 
 
 # Getting Started
 
