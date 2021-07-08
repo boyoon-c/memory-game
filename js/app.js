@@ -16,7 +16,7 @@ let playerTurn
 let p1Turn=true
 p1Score=0
 p2Score=0
-
+numFlip=0
 
 // Three modes for the level of difficulty: easy game, normal, hard
 // Alter the number of grids to adjust the level of difficulty
@@ -27,7 +27,7 @@ function init(){
 }
 // Attach event listener for each card on a board that invokes a function of displaying card
 // Shuffle the order of the cards on the board
-//cards.forEach(card => card.addEventListener('click', handleClick))
+cards.forEach(card => card.addEventListener('click', handleClick))
 //const colors=[]
 reshuffleButton.addEventListener('click', shuffleArray)
 restartButton.addEventListener('click', restart)
@@ -40,6 +40,13 @@ function restart(){
 let flipped=0
 
 function handleClick(e){
+    console.log("clicked")
+    console.log(numFlip)
+    p1Stat.style.color= (numFlip%6==0||numFlip%6==1||numFlip%6==2) ? "salmon": "black"
+    p2Stat.style.color= (numFlip%6==3||numFlip%6==4||numFlip%6==5) ? "salmon": "black"
+    numFlip = numFlip+1
+    console.log(numFlip)
+
     //firstCard=null
     //secondCard=null
     //thirdCard=null
@@ -107,7 +114,6 @@ function handleClick(e){
         flipped=0
         
     }
-    p1Stat.style.colr= (p1Turn==true) ? "salmon": "black"
     
     //console.log("firstcard", firstCard)
     //console.log("secondcard", secondCard)
@@ -131,6 +137,7 @@ function handleClick(e){
     
     
 }
+
  // function to track a player's performance
  function isMatch(first, second, third){
     let matched = false;
