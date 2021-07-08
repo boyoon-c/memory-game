@@ -16,10 +16,13 @@
 <body>
     <h1 class="bold_text">Memory Game</h1>
     <p class="h2" id="instruction">Flip Three Cards to Find a Match!</p>
-    <p class="h2" id="timer">Timer</p>
+    <p class="h2" id="timer"></p>
     <p class="h2" id="turn">Player Turn</p>
-
+    
     <div class=container>
+        <div class="mini-container1">
+            <h3 id="p1Score">Player 1 Score</h3>
+        </div>
         <div class="row">
             <div id="sq1" class=card data-emoji></div>
             <div id="sq2" class=card data-emoji></div>
@@ -27,6 +30,9 @@
             <div id="sq4" class=card data-emoji></div>
             <div id="sq5" class=card data-emoji></div>
             <div id="sq6" class=card data-emoji></div>
+        </div>
+        <div class="mini-container2">
+            <h3 id="p2Score">Player 2 Score</h3>
         </div>
         <div class="row">
             <div id="sq7" class=card data-emoji></div>
@@ -54,8 +60,6 @@
         </div>
     </div>
     <div class=scoreContainer>
-        <h3 id="p1Score">Player 1 Score</h3>
-        <h3 id="p2Score">Player 2 Score</h3>
     </div>
         
     <div class="buttons">

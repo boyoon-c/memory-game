@@ -17,12 +17,36 @@ h1 {
     
 }
 .h2 {
+    padding: 10px 0 10px 0;
     text-align: center;
     font-family: 'Odibee Sans', cursive;
     font-size: 30px;
     margin: 0px;
 }
+.container{
+    padding: 10px 0px;
+    display: grid;
+    justify-content: space-evenly;
+}
+.mini-container1{
+    display: flex;
+    grid-row: 1 / 6;
+    grid-column: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+}
+.mini-container2{
+    display: flex;
+    grid-row: 1 / 6;
+    grid-column: 3;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+}
 /*
+    border: 3px dotted blue;   
+
 .scores{
     font-family: 'Odibee Sans', cursive;
     font-size: 30px;
@@ -33,13 +57,15 @@ h1 {
     align-items: center;
 }
 
+*/
 #p1Score {
     display: flex;
     justify-content: left;
     align-items: center;
     flex-direction: row;
     font-family: 'Odibee Sans', cursive;
-    font-size: 25px;
+    font-size: 30px;
+    text-align: center;
 }
 
 #p2Score{
@@ -47,13 +73,12 @@ h1 {
     align-items: space-between;
     display: flex;
     font-family: 'Odibee Sans', cursive;
-    font-size: 25px;
+    font-size: 30px;
     flex-direction: row-reverse
 }
-*/
-.h3 {
-    display: flex;
-    justify-content: space-around;
+h3 {
+    font-size: 40px;
+    text-align: center;
 }
 #instruction{
     background-color: burlywood;
@@ -64,6 +89,7 @@ h1 {
 }
 
 .row {
+    grid-column: 2;
     text-align: center;
     display: inline-grid;
     grid-auto-flow: column;
@@ -82,10 +108,7 @@ h1 {
     background-image: default;
 }
 
-.container{
-    display: grid;
-    justify-content: space-around;
-}
+
 .column{
     grid-row: 6/1;
 }
@@ -175,13 +198,11 @@ h1 {
 
 }
 .card-done{
-    display: inline-flex;
     width: 100px;
     height: 100px;
     background: bisque;
     cursor: pointer;
-    border-radius: 20%;
-    margin: 3px;
+    border-radius: 60%;
     background-position: center center;
     background-size: 50px;
     font-size: inherit;
@@ -193,14 +214,29 @@ h1 {
     align-items: center;
     text-align: center;
 }
-.buttons{
-    font-family: 'Odibee Sans', cursive;
-    background-color: burlywood;
+button{
+    
     font-size: 30px;
     align-content: center;
-    margin: 30px 0px;
+    margin: 40px 10px;
+    font-weight: bold;
+    background-color: burlywood;
+    font-family: 'Bungee Shade', cursive; 
+    border-radius: 10px;
+    border: burlywood solid; 
+    font-weight: bold;
 }
 .scoreContainer{
     display: flex;
     justify-content: space-around;
+}
+#restartButton{
+    width: 200px;
+}
+#reshuffleButton{
+    width: 250px;
+}
+button:hover{
+    background-color: chartreuse;
+    border-color: chartreuse;
 }
