@@ -204,3 +204,13 @@ function flipCard(){
 // Track each player’s performance by counting the number of matches that a player found
 // Create restart button to allow players to reset the game or reshuffle the cards
 // If players found all the matches, show the message to reveals who is the winner
+let countdownEl = document.getElementById('countdown')
+let timeLeft= 10;
+
+let timer = setInterval(function() {
+    countdownEl.textContent = timeLeft + ' seconds remaining.';
+    timeLeft -= 1;
+    if (timeLeft < 0) {
+        countdownEl.textContent = 'Finished!'
+    }
+}, 1000)
