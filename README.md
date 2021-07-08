@@ -1,5 +1,4 @@
 # Memory Game
-A description of your game. Background info about why you chose the game is a nice touch.
 
 ## Description of the game
 The rule of the game is simple. Players should find a match from the cards. A player who finds the most matches wins.
@@ -8,14 +7,13 @@ The rule of the game is simple. Players should find a match from the cards. A pl
 Memory game has always been my childhood game and I occassionally play it with my nephew even these days. This has made me to build the memory game of my own. However, I have added some tweaks to make it more interesting: player of the turn flips three cards instead of two to find a match. 
 
 # Getting Started
-Include a link to your deployed game and any instructions you deem important.
 
 ## Link to the deployed game
 https://boyoon-c.github.io/memory-game/
 
 ## Instructions to play the game
 - Two players alternate turns.
-- Each player is offered 10 seconds to make their move.
+- (Each player is offered 10 seconds to make their move.) 
 - Each player should flip three cards at a time to find a match.
 - When the three cards are a match, that player who flipped the cards gets one point.
 - When the cards that are flipped do not match, players do not get a point. Cards are automatically flipped down and the next player gets the turn.
@@ -58,11 +56,22 @@ https://boyoon-c.github.io/memory-game/
 - CSS
 
 # Next Steps
-Planned future enhancements (icebox items).
+- [ ] Add timer
+- [ ] Add sound effect for clicking the button
+- [ ] Add sound effect for flipping the cards
+- [ ] Add sound effect for scoring
+- [ ] Add congratulating message when all cards are flipped
+- [ ] Add background sound
+- [ ] Add blinking animation to denote a player's turn
 
 # Resource and Credits
 ## Image source
 - Emojis
+  - Most emojis: https://emojiisland.com/pages/free-download-emoji-icons-png
+  - Heart hug emoji: https://pngtree.com/freepng/care-emoji-coronavirus-emoji_5366298.html
 - Bottle caps
-## Sound source
+  - Not flipped version: https://www.amazon.com/Home-Brew-Ohio-Crown-Bottle/dp/B07RDZ4Y58 
+  - Flipped version: https://www.vippng.com/preview/hJoibxx_bottle-cap-beer-bottle-cap-png/
 
+## Sound source
+- To be added
