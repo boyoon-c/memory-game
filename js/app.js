@@ -158,8 +158,8 @@ function handleClick(e){
      }
  }
  function render(p1Score, p2Score){
-    p1Stat.innerText=`Player 1 Score: ${p1Score}`
-    p2Stat.innerText=`Player 2 Score: ${p2Score}`
+    p1Stat.innerText=`Player 1 Score: \n ${p1Score}`
+    p2Stat.innerText=`Player 2 Score: \n ${p2Score}`
  }
  function shuffleArray(array){
      for (let i=emojis.length-1; i>0; i--){

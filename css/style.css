@@ -53,13 +53,15 @@ h1 {
     align-items: center;
 }
 
+*/
 #p1Score {
     display: flex;
     justify-content: left;
     align-items: center;
     flex-direction: row;
     font-family: 'Odibee Sans', cursive;
-    font-size: 25px;
+    font-size: 40px;
+    text-align: center;
 }
 
 #p2Score{
@@ -67,13 +69,12 @@ h1 {
     align-items: space-between;
     display: flex;
     font-family: 'Odibee Sans', cursive;
-    font-size: 25px;
+    font-size: 40px;
     flex-direction: row-reverse
 }
-*/
-.h3 {
-    display: flex;
-    justify-content: space-around;
+h3 {
+    font-size: 40px;
+    text-align: center;
 }
 #instruction{
     background-color: burlywood;
