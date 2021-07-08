@@ -17,12 +17,14 @@ h1 {
     
 }
 .h2 {
+    padding: 10px 0 10px 0;
     text-align: center;
     font-family: 'Odibee Sans', cursive;
     font-size: 30px;
     margin: 0px;
 }
 .container{
+    padding: 10px 0px;
     display: grid;
     justify-content: space-evenly;
 }
@@ -30,19 +32,21 @@ h1 {
     display: flex;
     grid-row: 1 / 6;
     grid-column: 1;
-    border: 3px dotted blue;   
     align-items: center;
     justify-content: center;
+    padding: 0 30px;
 }
 .mini-container2{
     display: flex;
     grid-row: 1 / 6;
     grid-column: 3;
-    border: 3px dotted blue;   
     align-items: center;
     justify-content: center;
+    padding: 0 30px;
 }
 /*
+    border: 3px dotted blue;   
+
 .scores{
     font-family: 'Odibee Sans', cursive;
     font-size: 30px;
@@ -60,7 +64,7 @@ h1 {
     align-items: center;
     flex-direction: row;
     font-family: 'Odibee Sans', cursive;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
 }
 
@@ -69,7 +73,7 @@ h1 {
     align-items: space-between;
     display: flex;
     font-family: 'Odibee Sans', cursive;
-    font-size: 40px;
+    font-size: 30px;
     flex-direction: row-reverse
 }
 h3 {

@@ -6,6 +6,7 @@ restartButton = document.querySelector('#restartButton')
 p1Stat = document.getElementById("p1Score")
 p2Stat = document.getElementById("p2Score")
 pTurn = document.getElementById("turn")
+minicontainer1=document.querySelector(".mini-container1")
 //console.log(p1Stat)
 let firstCard = null
 let secondCard = null
@@ -29,7 +30,7 @@ function init(){
 // Shuffle the order of the cards on the board
 cards.forEach(card => card.addEventListener('click', handleClick))
 //const colors=[]
-reshuffleButton.addEventListener('click', shuffleArray)
+reshuffleButton.addEventListener('click', shuffleArray(emojis))
 restartButton.addEventListener('click', restart)
 //assignedEmoji = shuffleArray(emojis)
 assignedEmoji = emojis
@@ -42,8 +43,8 @@ let flipped=0
 function handleClick(e){
     console.log("clicked")
     console.log(numFlip)
-    p1Stat.style.color= (numFlip%6==0||numFlip%6==1||numFlip%6==2) ? "salmon": "black"
-    p2Stat.style.color= (numFlip%6==3||numFlip%6==4||numFlip%6==5) ? "salmon": "black"
+    p1Stat.style.color= (numFlip%6==0||numFlip%6==1||numFlip%6==2) ? "salmon": ""
+    p2Stat.style.color= (numFlip%6==3||numFlip%6==4||numFlip%6==5) ? "salmon": ""
     numFlip = numFlip+1
     console.log(numFlip)
 
@@ -130,9 +131,9 @@ function handleClick(e){
     // } else{
     //     return
     // }
+    render(p1Score, p2Score)
 
         //keepScore(matchStatus, p1Turn)
-        render(p1Score, p2Score)
     pTurn.innerText = p1Turn ? `Player 1's Turn` : `Player 2's Turn`
     
     
@@ -165,8 +166,8 @@ function handleClick(e){
      }
  }
  function render(p1Score, p2Score){
-    p1Stat.innerText=`Player 1 Score: \n ${p1Score}`
-    p2Stat.innerText=`Player 2 Score: \n ${p2Score}`
+    p1Stat.innerText=`Player 1 Score \n ${p1Score}`
+    p2Stat.innerText=`Player 2 Score \n ${p2Score}`
  }
  function shuffleArray(array){
      for (let i=emojis.length-1; i>0; i--){
@@ -175,7 +176,7 @@ function handleClick(e){
          array[i] = array[j]
          array[j] = temp
      }
-     return array
+     return emojis=array
  }
 
 cards.forEach(emoji => emoji.addEventListener('click', handleClick))
