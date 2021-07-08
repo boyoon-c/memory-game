@@ -9,7 +9,7 @@ Memory game has always been my childhood game and I occassionally play it with m
 # Getting Started
 
 ## Link to the deployed game
-https://boyoon-c.github.io/memory-game/
+[Play game](https://boyoon-c.github.io/memory-game/)
 
 ## Instructions to play the game
 - Two players alternate turns.

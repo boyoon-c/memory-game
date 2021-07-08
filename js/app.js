@@ -7,7 +7,7 @@ p1Stat = document.getElementById("p1Score")
 p2Stat = document.getElementById("p2Score")
 pTurn = document.getElementById("turn")
 minicontainer1=document.querySelector(".mini-container1")
-//console.log(p1Stat)
+commentBox=document.getElementById("instruction")
 let firstCard = null
 let secondCard = null
 let thirdCard = null
@@ -15,9 +15,11 @@ let assignedEmoji = []
 let clickedCard = false
 let playerTurn 
 let p1Turn=true
+let numMatch=0
 p1Score=0
 p2Score=0
 numFlip=0
+let flipped=0
 let countdownEl1 = document.getElementById('countdownP1')
 let countdownEl2 = document.getElementById('countdownP2')
 
@@ -26,27 +28,26 @@ let countdownEl2 = document.getElementById('countdownP2')
 // initiation function
 init()
 function init(){
-    emojis = ["emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8"]
+    //emojis = ["emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8"]
+    emojis = ["emoji1", "emoji1", "emoji1", "emoji2", "emoji2", "emoji2", "emoji3", "emoji3", "emoji3", "emoji4", "emoji4", "emoji4", "emoji5", "emoji5", "emoji5", "emoji6", "emoji6", "emoji6", "emoji7", "emoji7", "emoji7", "emoji8", "emoji8", "emoji8"]
+
 }
 // Attach event listener for each card on a board that invokes a function of displaying card
 // Shuffle the order of the cards on the board
 assignedEmoji = emojis
 cards.forEach(card => card.addEventListener('click', handleClick))
-//const colors=[]
 shuffleButton.addEventListener('click', shuffleArray)
 restartButton.addEventListener('click', restart)
-//assignedEmoji = shuffleArray(emojis)
-//console.log(assignedEmoji)
+
 function restart(){
     window.location.reload()
 }
-let flipped=0
 
 function handleClick(e){
     console.log("clicked")
     console.log(numFlip)
-    p1Stat.style.color= (numFlip%6==0||numFlip%6==1||numFlip%6==2) ? "salmon": ""
-    p2Stat.style.color= (numFlip%6==3||numFlip%6==4||numFlip%6==5) ? "salmon": ""
+    p1Stat.style.color= (numFlip%6==0||numFlip%6==1||numFlip%6==2) ? "crimson": ""
+    p2Stat.style.color= (numFlip%6==3||numFlip%6==4||numFlip%6==5) ? "crimson": ""
     numFlip = numFlip+1
     console.log(numFlip)
 
@@ -101,6 +102,8 @@ function handleClick(e){
                 thirdCard.removeAttribute("data-emoji")
                 thirdCard.classList.replace("card","card-done")
                 }, 2000)
+                numMatch +=1
+                console.log('total number of match:', numMatch)
             }
             if (p1Turn){
                 
@@ -136,29 +139,44 @@ function handleClick(e){
     render(p1Score, p2Score)
 
         //keepScore(matchStatus, p1Turn)
+    
      if (p1Turn){
         let timeLeft= 10;
 
        pTurn.innerText = `Player 1's Turn`
+       /*
         setInterval(function() {
             countdownEl1.textContent = timeLeft + ' seconds remaining.';
             timeLeft -= 1;
             if (timeLeft < 0) {
                 countdownEl1.textContent = '0'
                 countdownEl1.style.color="red"
-            }}, 1000)
+            }}, 1000)*/
     } else {
         let timeLeft= 10;
 
         pTurn.innerText =`Player 2's Turn`
+        /*
         setInterval(function() {
             countdownEl2.textContent = timeLeft + ' seconds remaining.';
             timeLeft -= 1;
             if (timeLeft < 0) {
                 countdownEl2.textContent = '0'
                 countdownEl2.style.color="red"
-            }}, 1000)}
-    
+            }}, 1000)
+            */
+        }
+    if (numMatch==8){
+        if (p1Score===p2Score){
+            commentBox.innerText="It's a tie! Hit restart button below to rematch!"
+        } else if (p1Score>p2Score) {
+            commentBox.innerText="Congratulation! You won, player 1!"
+            confetti.start()
+        } else if (p1Score < p2Score) {
+            commentBox.innerText="Congratulation! You won, player 2!"
+            confetti.start()
+        }
+    }
 }
 
  // function to track a player's performance
