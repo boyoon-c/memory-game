@@ -127,12 +127,13 @@ h3 {
     background-repeat: no-repeat;
 }
 .card:hover {
-    background: grey;
+    background: burlywood;
     
 }
 
-.card.flip {
+.card.flipped {
     transform: rotateY(180deg);
+    transition-duration: 500ms;
 }
 .red {
     background-color: red;
@@ -200,14 +201,16 @@ h3 {
 .card-done{
     width: 100px;
     height: 100px;
-    background: bisque;
+    background-image: url("../images/vippng.com-bottle-popping-png-4517045.png");
+    background-size: 500px;
     cursor: pointer;
     border-radius: 60%;
     background-position: center center;
     background-size: 50px;
-    font-size: inherit;
-    object-fit: scale-down;
     background-repeat: no-repeat;
+    transform: rotateY(180deg);
+    transition-duration: 500ms;
+    transition-property: background-image background-size transform;
 }
 .scores{
     justify-content: center;
