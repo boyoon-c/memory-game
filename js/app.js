@@ -18,6 +18,8 @@ let p1Turn=true
 p1Score=0
 p2Score=0
 numFlip=0
+let countdownEl1 = document.getElementById('countdownP1')
+let countdownEl2 = document.getElementById('countdownP2')
 
 // Three modes for the level of difficulty: easy game, normal, hard
 // Alter the number of grids to adjust the level of difficulty
@@ -98,7 +100,7 @@ function handleClick(e){
                 
                 thirdCard.removeAttribute("data-emoji")
                 thirdCard.classList.replace("card","card-done")
-                }, 5000)
+                }, 2000)
             }
             if (p1Turn){
                 
@@ -134,8 +136,28 @@ function handleClick(e){
     render(p1Score, p2Score)
 
         //keepScore(matchStatus, p1Turn)
-    pTurn.innerText = p1Turn ? `Player 1's Turn` : `Player 2's Turn`
-    
+     if (p1Turn){
+        let timeLeft= 10;
+
+       pTurn.innerText = `Player 1's Turn`
+        setInterval(function() {
+            countdownEl1.textContent = timeLeft + ' seconds remaining.';
+            timeLeft -= 1;
+            if (timeLeft < 0) {
+                countdownEl1.textContent = '0'
+                countdownEl1.style.color="red"
+            }}, 1000)
+    } else {
+        let timeLeft= 10;
+
+        pTurn.innerText =`Player 2's Turn`
+        setInterval(function() {
+            countdownEl2.textContent = timeLeft + ' seconds remaining.';
+            timeLeft -= 1;
+            if (timeLeft < 0) {
+                countdownEl2.textContent = '0'
+                countdownEl2.style.color="red"
+            }}, 1000)}
     
 }
 
@@ -204,13 +226,3 @@ function flipCard(){
 // Track each player’s performance by counting the number of matches that a player found
 // Create restart button to allow players to reset the game or reshuffle the cards
 // If players found all the matches, show the message to reveals who is the winner
-let countdownEl = document.getElementById('countdown')
-let timeLeft= 10;
-
-let timer = setInterval(function() {
-    countdownEl.textContent = timeLeft + ' seconds remaining.';
-    timeLeft -= 1;
-    if (timeLeft < 0) {
-        countdownEl.textContent = 'Finished!'
-    }
-}, 1000)
