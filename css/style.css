@@ -22,6 +22,7 @@ h1 {
     font-family: 'Odibee Sans', cursive;
     font-size: 30px;
     margin: 0px;
+    font-weight: bold;
 }
 .container{
     padding: 10px 0px;
@@ -44,20 +45,6 @@ h1 {
     justify-content: center;
     padding: 0 30px;
 }
-/*
-    border: 3px dotted blue;   
-
-.scores{
-    font-family: 'Odibee Sans', cursive;
-    font-size: 30px;
-    margin: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: center;
-}
-
-*/
 #p1Score {
     display: flex;
     justify-content: left;
@@ -96,19 +83,9 @@ h3 {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-/*
-.row3{
-    display:flex;
-    text-align:center;
-    justify-content: space-between;
-    font-size: 20px;
-}
-*/
 .card-hidden{
     background-image: default;
 }
-
-
 .column{
     grid-row: 6/1;
 }
@@ -128,33 +105,10 @@ h3 {
 }
 .card:hover {
     background: burlywood;
-    
 }
-
 .card.flipped {
     transform: rotateY(180deg);
     transition-duration: 500ms;
-}
-.red {
-    background-color: red;
-}
-.blue {
-    background-color: blue
-}
-.pink{
-    background-color: pink
-}
-.black{
-    background-color: black
-}
-.white{
-    background-color: white
-}
-.green{
-    background-color: greenyellow
-}
-.brown{
-    background-color: brown
 }
 .data-emoji{
     background-color: bisque;
@@ -218,7 +172,6 @@ h3 {
     text-align: center;
 }
 button{
-    
     font-size: 30px;
     align-content: center;
     margin: 40px 10px;
@@ -235,9 +188,11 @@ button{
 }
 #restartButton{
     width: 200px;
+    box-shadow: 2px 2px 3px 0 rgba(41, 41, 41, 0.75); 
 }
 #reshuffleButton{
     width: 250px;
+    box-shadow: 2px 2px 3px 0 rgba(41, 41, 41, 0.75); 
 }
 button:hover{
     background-color: chartreuse;

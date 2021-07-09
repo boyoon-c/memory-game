@@ -1,13 +1,5 @@
 
-
-cards = document.querySelectorAll('.card')
-shuffleButton = document.querySelector('#reshuffleButton')
-restartButton = document.querySelector('#restartButton')
-p1Stat = document.getElementById("p1Score")
-p2Stat = document.getElementById("p2Score")
-pTurn = document.getElementById("turn")
-minicontainer1=document.querySelector(".mini-container1")
-commentBox=document.getElementById("instruction")
+/*-------State Variables-------*/
 let firstCard = null
 let secondCard = null
 let thirdCard = null
@@ -16,54 +8,90 @@ let clickedCard = false
 let playerTurn 
 let p1Turn=true
 let numMatch=0
-p1Score=0
-p2Score=0
-numFlip=0
+let p1Score=0
+let p2Score=0
+let numFlip=0
 let flipped=0
+
+
+
+/*-------Constants-------*/
+const audioNope = new Audio('../audio/nope.mp3')
+const audioYay = new Audio('../audio/matched.wav')
+const audioApplause = new Audio('../audio/applause.wav')
+const audioCardFlip = new Audio('../audio/Card-flip-sound-effect.mp3')
+
+
+
+/*-------Cached Elements-------*/
+cards = document.querySelectorAll('.card')
+shuffleButton = document.querySelector('#reshuffleButton')
+restartButton = document.querySelector('#restartButton')
+p1Stat = document.getElementById("p1Score")
+p2Stat = document.getElementById("p2Score")
+pTurn = document.getElementById("turn")
+minicontainer1=document.querySelector(".mini-container1")
+commentBox=document.getElementById("instruction")
 let countdownEl1 = document.getElementById('countdownP1')
 let countdownEl2 = document.getElementById('countdownP2')
 
-// Three modes for the level of difficulty: easy game, normal, hard
-// Alter the number of grids to adjust the level of difficulty
-// initiation function
-init()
-function init(){
-    //emojis = ["emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8","emoji1", "emoji2", "emoji3", "emoji4", "emoji5", "emoji6", "emoji7", "emoji8"]
-    emojis = ["emoji1", "emoji1", "emoji1", "emoji2", "emoji2", "emoji2", "emoji3", "emoji3", "emoji3", "emoji4", "emoji4", "emoji4", "emoji5", "emoji5", "emoji5", "emoji6", "emoji6", "emoji6", "emoji7", "emoji7", "emoji7", "emoji8", "emoji8", "emoji8"]
 
-}
+
+/*-------Event Listeners-------*/
 // Attach event listener for each card on a board that invokes a function of displaying card
-// Shuffle the order of the cards on the board
-assignedEmoji = emojis
 cards.forEach(card => card.addEventListener('click', handleClick))
+// Shuffle the order of the cards on the board
 shuffleButton.addEventListener('click', shuffleArray)
+// Restart
 restartButton.addEventListener('click', restart)
 
+
+
+/*-------Functions-------*/
+// Initiate
+init()
+function init(){
+    emojis = ["emoji1", "emoji1", "emoji1", "emoji2", "emoji2", "emoji2", "emoji3", "emoji3", "emoji3", "emoji4", "emoji4", "emoji4", "emoji5", "emoji5", "emoji5", "emoji6", "emoji6", "emoji6", "emoji7", "emoji7", "emoji7", "emoji8", "emoji8", "emoji8"]
+    setTimeout(function(){
+        id=0
+        cards.forEach(card =>{
+            card.setAttribute("data-emoji", emojis[id])
+            id+=1
+        })
+    }, 1000)
+
+    setTimeout(function(){
+        cards.forEach(card =>{
+            card.removeAttribute("data-emoji")
+        })
+    }, 5000)
+
+}
+
+assignedEmoji = emojis
+
+//Restart
 function restart(){
     window.location.reload()
 }
 
+// Function to handle a button click:
 function handleClick(e){
-    console.log("clicked")
-    console.log(numFlip)
+
+    //Flip sound
+    setTimeout(function(){audioCardFlip.play();},0.0001)
+    //Score board color update
     p1Stat.style.color= (numFlip%6==0||numFlip%6==1||numFlip%6==2) ? "crimson": ""
     p2Stat.style.color= (numFlip%6==3||numFlip%6==4||numFlip%6==5) ? "crimson": ""
     numFlip = numFlip+1
-    console.log(numFlip)
 
-    //firstCard=null
-    //secondCard=null
-    //thirdCard=null
-    //clickedCard = true
-    //this.classList.add('flip')
-    //console.log("This", this)
-     target=e.target
-     //console.log(target)
-     targetIdx=(parseInt(target.id.replace("sq","").trim())-1)
-     //this.classList.add(assignedEmoji[targetIdx])
-     this.classList.add("flipped")
-     this.setAttribute("data-emoji", assignedEmoji[targetIdx])
-    //console.log(this.removeAttribute)
+    
+    target=e.target
+    targetIdx=(parseInt(target.id.replace("sq","").trim())-1)
+    this.classList.add("flipped")
+    this.setAttribute("data-emoji", assignedEmoji[targetIdx])
+
+    // Each player flips three cards at a time
      if (flipped===0){
          firstCard = this
          flipped +=1
@@ -71,42 +99,39 @@ function handleClick(e){
          return
         } else if (flipped===1){
             secondCard=this
-            
             flipped +=1
         } else if (flipped===2){
             thirdCard=this
-            //p1Turn = (!p1Turn) ? true : false
             let matchStatus=isMatch(firstCard, secondCard, thirdCard)
-            //console.log(matchStatus)
+
+            // If there is no match: Make all the cards flip downward
             if (!matchStatus){
+                setTimeout(function(){audioNope.play();},0.5)
+
                 setTimeout(()=>{
-                    //firstCard.classList.remove("emoji*");
                     firstCard.removeAttribute("data-emoji")
                     firstCard.classList.remove("flipped")
-                    //secondCard.classList.remove(assignedEmoji[targetIdx]);
                     secondCard.removeAttribute("data-emoji")
                     secondCard.classList.remove("flipped")
-                    //thirdCard.classList.remove(assignedEmoji[targetIdx]);
                     thirdCard.removeAttribute("data-emoji")
                     thirdCard.classList.remove("flipped")
-                   }, 2000)
-         
+                   }, 1000)
             } else if (matchStatus==true){
+                setTimeout(function(){audioYay.play();},0.5)
+                
+                // If there is a match: Remove the matched cards from the board
                 setTimeout(() =>{
                 firstCard.removeAttribute("data-emoji")
                 firstCard.classList.replace("card","card-done")
-                
                 secondCard.removeAttribute("data-emoji")
                 secondCard.classList.replace("card","card-done")
-                
                 thirdCard.removeAttribute("data-emoji")
                 thirdCard.classList.replace("card","card-done")
-                }, 2000)
+                }, 1000)
                 numMatch +=1
-                console.log('total number of match:', numMatch)
             }
+            //Update player scores
             if (p1Turn){
-                
                 if (matchStatus==true){
                     p1Score+=1
                 }
@@ -118,33 +143,15 @@ function handleClick(e){
                 p1Turn = true
             }
         flipped=0
-        
     }
     
-    //console.log("firstcard", firstCard)
-    //console.log("secondcard", secondCard)
-    //console.log("thirdCard", thirdCard)
-    //console.log("p1Turn", p1Turn)
-
-    //alternating turns
-    //when three cards that are flipped are not identical, flip them down
-    
-    //if three cards that are flipped are identical, switch their color from the original background to pink and make them disappear
-    //        //clicked+=1
-
-        
-    // } else{
-    //     return
-    // }
     render(p1Score, p2Score)
 
-        //keepScore(matchStatus, p1Turn)
     
-     if (p1Turn){
+     if (p1Turn){   
+         pTurn.innerText = `Player 1's Turn`
+         /* Timer... (for later exercise)
         let timeLeft= 10;
-
-       pTurn.innerText = `Player 1's Turn`
-       /*
         setInterval(function() {
             countdownEl1.textContent = timeLeft + ' seconds remaining.';
             timeLeft -= 1;
@@ -153,10 +160,9 @@ function handleClick(e){
                 countdownEl1.style.color="red"
             }}, 1000)*/
     } else {
-        let timeLeft= 10;
-
         pTurn.innerText =`Player 2's Turn`
-        /*
+        /* Timer... (for later exercise)
+        let timeLeft= 10;
         setInterval(function() {
             countdownEl2.textContent = timeLeft + ' seconds remaining.';
             timeLeft -= 1;
@@ -166,37 +172,41 @@ function handleClick(e){
             }}, 1000)
             */
         }
+    // If players found all the matches, show the message to reveals who is the winner
     if (numMatch==8){
         if (p1Score===p2Score){
             commentBox.innerText="It's a tie! Hit restart button below to rematch!"
         } else if (p1Score>p2Score) {
             commentBox.innerText="Congratulation! You won, player 1!"
             confetti.start()
+            setTimeout(function(){audioApplause.play();},0.25)
+
         } else if (p1Score < p2Score) {
             commentBox.innerText="Congratulation! You won, player 2!"
             confetti.start()
+            setTimeout(function(){audioApplause.play();},0.25)
+
         }
     }
 }
 
- // function to track a player's performance
+ // Track a player's performance
  function isMatch(first, second, third){
     let matched = false;
-    console.log('first attribute is', first)
-    console.log('second attribute is', second)
-    console.log('third attribute is', third)
 
+    // See if there is a match
      if (first.getAttribute("data-emoji")===second.getAttribute("data-emoji") && second.getAttribute("data-emoji")===third.getAttribute("data-emoji")){
          console.log("Cards do match")
          matched = true
          
      } else{
         console.log("Cards do not match")
-        //make the matched cards disappear
         
      }
      return matched
  }
+
+ // Track each player’s performance by counting the number of matches that a player found
  function keepScore(winStatus, p1Turn){
      if (winStatus==true && p1Turn ==true){
          p1Score+=1
@@ -209,6 +219,8 @@ function handleClick(e){
     p1Stat.innerText=`Player 1 Score \n ${p1Score}`
     p2Stat.innerText=`Player 2 Score \n ${p2Score}`
  }
+
+ // Function that uses randomized number to create different combination of a card array
  function shuffleArray(){
      array=emojis
      for (let i=emojis.length-1; i>0; i--){
@@ -217,30 +229,22 @@ function handleClick(e){
          array[i] = array[j]
          array[j] = temp
      }
-     return emojis=array
- }
+     emojis=array
+     setTimeout(function(){
+        id=0
+        cards.forEach(card =>{
+            card.setAttribute("data-emoji", emojis[id])
+            id+=1
+        })
+    }, 1000)
 
-cards.forEach(emoji => emoji.addEventListener('click', handleClick))
-
-function flipCard(){
-    this.classList.toggle('hidden');
+    setTimeout(function(){
+        cards.forEach(card =>{
+            card.removeAttribute("data-emoji")
+        })
+    }, 5000)
+     return 
 }
 
-// Functions
-// init()
-// Initialize deck 1 with array of 52 cards 
-// Function to handle a button click:
-// Create shuffle button
 
 
-// Attach event listener to the button that invokes a function that uses randomized number to create different combination of a card array
-// Each player flips three cards at a time
-// Create player turn that alternates turns when multiples-of-three clicks are made
-// See if there is a match
-// Assign type to each card 
-// Compare the type of the flipped cards
-// If there is no match: Make all the cards flip downward
-// If there is a match: Remove the matched cards from the board
-// Track each player’s performance by counting the number of matches that a player found
-// Create restart button to allow players to reset the game or reshuffle the cards
-// If players found all the matches, show the message to reveals who is the winner

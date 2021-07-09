@@ -13,7 +13,6 @@ Memory game has always been my childhood game and I occassionally play it with m
 
 ## Instructions to play the game
 - Two players alternate turns.
-- (Each player is offered 10 seconds to make their move.) 
 - Each player should flip three cards at a time to find a match.
 - When the three cards are a match, that player who flipped the cards gets one point.
 - When the cards that are flipped do not match, players do not get a point. Cards are automatically flipped down and the next player gets the turn.
@@ -54,14 +53,14 @@ Memory game has always been my childhood game and I occassionally play it with m
 - Javascript
 - HTML
 - CSS
+- confetti.min.js
+- Git
 
 # Next Steps
 - [ ] Add timer
-- [ ] Add sound effect for clicking the button
-- [ ] Add sound effect for flipping the cards
-- [ ] Add sound effect for scoring
-- [ ] Add congratulating message when all cards are flipped
-- [ ] Add background sound
+- [X] Add sound effect for flipping the cards
+- [X] Add sound effect for scoring
+- [X] Add congratulating message when all cards are flipped
 - [ ] Add blinking animation to denote a player's turn
 
 # Resource and Credits
@@ -74,4 +73,7 @@ Memory game has always been my childhood game and I occassionally play it with m
   - Flipped version: https://www.vippng.com/preview/hJoibxx_bottle-cap-beer-bottle-cap-png/
 
 ## Sound source
-- To be added
+- Card flip sound: ["Card Flip Sound Effect" from notification-sounds.com](https://notification-sounds.com/1433-card-flip-sound-effect.html)
+- Sound when cards match: ["Unlock game notification" sound from mixkit](https://mixkit.co/free-sound-effects/game/)
+- Sound when cards don't match: ["Nope" sound from myinstants](https://www.myinstants.com/instant/nope/)
+- Congratulating sound: ["Animated small group applause" sound from mixkit](https://mixkit.co/free-sound-effects/applause/?page=2)
