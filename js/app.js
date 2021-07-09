@@ -70,10 +70,6 @@ function init(){
 
 assignedEmoji = emojis
 
-//Restart
-function restart(){
-    window.location.reload()
-}
 
 // Function to handle a button click:
 function handleClick(e){
@@ -175,14 +171,14 @@ function handleClick(e){
     // If players found all the matches, show the message to reveals who is the winner
     if (numMatch==8){
         if (p1Score===p2Score){
-            commentBox.innerText="It's a tie! Hit restart button below to rematch!"
+            pTurn.innerText="It's a tie! Hit restart button below to rematch!"
         } else if (p1Score>p2Score) {
-            commentBox.innerText="Congratulation! You won, player 1!"
+            pTurn.innerText="Congratulation! You won, player 1!"
             confetti.start()
             setTimeout(function(){audioApplause.play();},0.25)
 
         } else if (p1Score < p2Score) {
-            commentBox.innerText="Congratulation! You won, player 2!"
+            pTurn.innerText="Congratulation! You won, player 2!"
             confetti.start()
             setTimeout(function(){audioApplause.play();},0.25)
 
@@ -190,7 +186,7 @@ function handleClick(e){
     }
 }
 
- // Track a player's performance
+ // Evaluate if flipped cards match
  function isMatch(first, second, third){
     let matched = false;
 
@@ -246,5 +242,9 @@ function handleClick(e){
      return 
 }
 
+//Restart
+function restart(){
+    window.location.reload()
+}
 
 
