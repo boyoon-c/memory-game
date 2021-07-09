@@ -9,8 +9,8 @@ Memory game has always been my childhood game and I occassionally play it with m
 # Getting Started
 
 ## Link to the deployed game
-[Github page](https://boyoon-c.github.io/memory-game/)
-[Surge](https://memory-game-chang.surge.sh/)
+- [Github page](https://boyoon-c.github.io/memory-game/)
+- [Surge](https://memory-game-chang.surge.sh/)
 
 ## Instructions to play the game
 - Two players alternate turns.
