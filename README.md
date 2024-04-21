@@ -4,7 +4,7 @@
 The rule of the game is simple. Players should find a match from the cards. A player who finds the most matches wins.
 
 ## Motivation
-Memory game has always been my childhood game and I occassionally play it with my nephew even nowadays. This has made me to build the memory game of my own. However, I have added some tweaks to make it more interesting: player of the turn flips three cards instead of two to find a match. 
+The memory game has always been a part of my childhood, and I occasionally play it with my nephew even now. This inspired me to create my own version of the memory game. I've added some tweaks though to make it more interesting: players now flip **three** cards instead of two during their turn to find a match. 
 
 # Getting Started
 
@@ -15,10 +15,11 @@ Memory game has always been my childhood game and I occassionally play it with m
 ## Instructions to play the game
 - Two players alternate turns.
 - Each player should flip three cards at a time to find a match.
-- When the three cards are a match, that player who flipped the cards gets one point.
-- When the cards that are flipped do not match, players do not get a point. Cards are automatically flipped down and the next player gets the turn.
+- When the three flipped cards match, the player who flipped them earns one point.
+- If the flipped cards do not match, players do not get a point. The cards are automatically flipped back down, and it's the next players' turn.
 - Scores accumulate until there are no more cards to flip.
-- Player with a higher score wins and the game ends.
+- The player with a higher score wins, and the game ends.
+
 
 ## Pseudo code 
 ```
